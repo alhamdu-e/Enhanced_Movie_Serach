@@ -1,5 +1,5 @@
 import "../css/footer.css";
-import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 
 function Footer() {
@@ -22,12 +22,12 @@ function Footer() {
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="https://app.netlify.com/">
 							<FaTwitter /> twitter
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="https://github.com/alhamdu-e">
 							<FaGithub /> github
 						</a>
 					</li>
@@ -37,53 +37,55 @@ function Footer() {
 					<li className="main-info">contact</li>
 
 					<li>
-						<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movieradar.com </a>
+						<a href="https://app.netlify.com/">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movieradar.com{" "}
+						</a>
 					</li>
 					<li>
 						{" "}
-						<a href="#">+25164676678</a>
+						<a href="https://app.netlify.com/">+25164676678</a>
 					</li>
 					<li>
 						{" "}
-						<a href="#">+25160128900</a>
+						<a href="https://app.netlify.com/">+25160128900</a>
 					</li>
 					<li>
 						{" "}
-						<a href="#">+2512785606</a>
+						<a href="https://app.netlify.com/">+2512785606</a>
 					</li>
 				</ul>
 
 				<ul className="flex">
 					<li className="main-info">company</li>
 					<li>
-						<a href="#">&nbsp;&nbsp;services </a>
+						<a href="https://app.netlify.com/">&nbsp;&nbsp;services </a>
 					</li>
 					<li>
-						<a href="#">&nbsp;contact</a>
+						<a href="https://app.netlify.com/">&nbsp;contact</a>
 					</li>
 					<li>
-						<a href="#">about</a>
+						<a href="https://app.netlify.com/">about</a>
 					</li>
 					<li>
-						<a href="#">home </a>
+						<a href="https://app.netlify.com/">home </a>
 					</li>
 				</ul>
 
 				<ul className="flex">
 					<li className="main-info">service</li>
 					<li>
-						<a>
+						<a href="https://app.netlify.com/">
 							Ratings &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						</a>
 					</li>
 					<li>
-						<a href="#">Movie Search </a>
+						<a href="https://app.netlify.com/">Movie Search </a>
 					</li>
 					<li>
-						<a href="#">Movie Details</a>
+						<a href="https://app.netlify.com/">Movie Details</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="https://app.netlify.com/">
 							Trailers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						</a>
 					</li>

@@ -1,8 +1,8 @@
 import Footer from "./footer";
-import { BiUserPlus, BiSolidUserPlus } from "react-icons/bi";
+import { BiSolidUserPlus } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import "../css/login.css";
@@ -80,7 +80,7 @@ function Signup() {
 						</button>
 					</div>
 					<div>
-						<a href="#" className="forget">
+						<a href="https://app.netlify.com/" className="forget">
 							Read terms and condition
 						</a>
 						<h5>

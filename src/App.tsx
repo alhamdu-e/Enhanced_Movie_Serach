@@ -11,7 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./components/404";
 import NotAuth from "./components/notAutheticated";
 
-interface Movie {
+interface Movieeee {
 	id: Number;
 	title: string;
 	poster_path: string;
@@ -23,7 +23,7 @@ function App() {
 	const howitworks = useRef<HTMLDivElement | null>(null);
 	const moviee = useRef<HTMLDivElement | null>(null);
 
-	const [feature, setFeature] = useState<Movie[]>([]);
+	const [feature, setFeature] = useState<Movieeee[]>([]);
 	useEffect(() => {
 		fetch("https://api.themoviedb.org/3/movie/popular?api_key=" + apikey)
 			.then((response) => response.json())

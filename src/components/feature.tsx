@@ -17,7 +17,7 @@ const Feature: React.FC<featureProps> = ({
 	image,
 }) => {
 	const y = year.split("-");
-	const [yr, mn, dt] = y;
+	const [yr, ,] = y;
 	// const nor = `${dt}-${mn}-${yr}`;
 	return (
 		<div>
