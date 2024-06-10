@@ -1,21 +1,17 @@
 import "../css/movi-seach.css";
 import Footer from "./footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "../css/navagiation.css";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useMovieContext } from "./movecontext";
 import "../css/feature.css";
-import { useAuth } from "./authContext";
-import { useNavigate } from "react-router-dom";
-import { json } from "stream/consumers";
 
 function Movie() {
 	const apikey = process.env.REACT_APP_API_KEY;
 
 	const [movieTitle, setmovieTitle] = useState("");
 	const { selectMovie, movieResults, setMovieResults } = useMovieContext();
-	const navigate = useNavigate();
 
 	function storeinLocalStorage() {
 		sessionStorage.setItem("moviresult", JSON.stringify(movieResults));
@@ -25,27 +21,13 @@ function Movie() {
 	const [displayPagination, setDisplayPaginatinn] = useState(false);
 	const [catValue, setCatValue] = useState("");
 	const [booll, setbool] = useState(false);
-	const { token, setAuthToken } = useAuth();
 	const storedData = sessionStorage.getItem("moviresult");
-
-	// if (storedData !== null) {
-	// 	try {
-	// 		const dataArray = JSON.parse(storedData);
-	// 		// Now you can use the parsed array stored in dataArray
-	// 	} catch (error) {
-	// 		console.error("Error parsing stored array:", error);
-	// 		// Handle the error, such as providing default data or informing the user
-	// 	}
-	// } else {
-	// 	console.log("No data found in localStorage with the key 'moviresult'");
-	// 	// Handle the case where no data is found in localStorage
-	// }
 
 	const getMovieTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setmovieTitle(event.target.value);
 	};
 
-	const popularMovies = () => {
+	const popularMovies = useCallback(() => {
 		fetch("https://api.themoviedb.org/3/movie/popular?api_key=" + apikey)
 			.then((response) => response.json())
 			.then((data) => {
@@ -55,7 +37,7 @@ function Movie() {
 			.catch((err) => {
 				console.log(err);
 			});
-	};
+	}, [apikey, setMovieResults]);
 
 	useEffect(() => {
 		if (storedData !== null) {
@@ -64,7 +46,7 @@ function Movie() {
 		if (storedData === null) {
 			popularMovies();
 		}
-	}, []);
+	}, [storedData, setMovieResults, popularMovies]);
 	const serachMovie = () => {
 		setbool(true);
 		setCurrentPages(1);
@@ -168,7 +150,6 @@ function Movie() {
 
 	return (
 		<div>
-			{/* {token ? ( // Corrected conditional rendering */}
 			<>
 				<div className="movie-search">
 					<div className="serach-nav">
@@ -185,10 +166,7 @@ function Movie() {
 								onChange={getMovieTitle}
 							/>
 
-							<button
-								role="button"
-								className="btn-serach"
-								onClick={serachMovie}>
+							<button className="btn-serach" onClick={serachMovie}>
 								<BiSearchAlt2 />
 							</button>
 						</div>
@@ -233,19 +211,19 @@ function Movie() {
 							</button>
 							<button
 								className={`btn-pagination ${
-									currentPages == 1 ? "active" : ""
+									currentPages === 1 ? "active" : ""
 								}`}>
 								{1}
 							</button>
 							<button
 								className={`btn-pagination ${
-									currentPages == 2 ? "active" : ""
+									currentPages === 2 ? "active" : ""
 								}`}>
 								{2}
 							</button>
 							<button
 								className={`btn-pagination ${
-									currentPages == 3 ? "active" : ""
+									currentPages === 3 ? "active" : ""
 								}`}>
 								{3}
 							</button>
@@ -264,6 +242,7 @@ function Movie() {
 								if (Movie.poster_path) {
 									return true;
 								}
+								return false;
 							})
 							.map((movie) => {
 								let date = "";
@@ -272,9 +251,7 @@ function Movie() {
 									date = "04/06/1978";
 									bool = true;
 								}
-								let poter = false;
 								if (!movie.poster_path) {
-									poter = true;
 								}
 								let year, da, mn, yr;
 								if (movie.release_date) {
