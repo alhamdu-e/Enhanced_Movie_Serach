@@ -160,4 +160,16 @@ span {
 		background-color: transparent;
 		color: white !important;
 	}
+	ul li a {
+		font-size: 1.3rem !important;
+	}
+}
+
+@media only screen and (max-width: 337px) {
+	.feature-container {
+		grid-template-columns: 1fr !important;
+	}
+	ul li a {
+		font-size: 1.2rem !important;
+	}
 }

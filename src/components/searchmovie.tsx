@@ -31,6 +31,7 @@ function Movie() {
 		fetch("https://api.themoviedb.org/3/movie/popular?api_key=" + apikey)
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data);
 				const movies = data.results;
 				setMovieResults(movies);
 			})

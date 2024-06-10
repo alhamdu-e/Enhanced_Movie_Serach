@@ -96,8 +96,6 @@ function MovieDetail() {
 						<div className="iframe-cont">
 							{moviTrailer?.length > 0 && (
 								<iframe
-									width="1200"
-									height="500"
 									src={`https://www.youtube.com/embed/${moviTrailer[0].key}?rel=0&modestbranding=1`}
 									title="Jack Reacher: Never Go Back (2016) - IMAX Trailer - Paramount Pictures"
 									frameBorder="0"
