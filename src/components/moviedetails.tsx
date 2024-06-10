@@ -103,6 +103,7 @@ function MovieDetail() {
 									allowFullScreen></iframe>
 							)}
 						</div>
+						{moviTrailer?.length === 0 && <div className="loader"></div>}
 						<div className="details-container">
 							<div>
 								<img
